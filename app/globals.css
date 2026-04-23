@@ -1,0 +1,56 @@
+@import "tailwindcss";
+
+:root {
+  color-scheme: dark;
+  --background: #0d1117;
+  --background-soft: #111827;
+  --foreground: #e6edf3;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html,
+body {
+  margin: 0;
+  padding: 0;
+  max-width: 100%;
+  overflow-x: hidden;
+  background: var(--background);
+}
+
+body {
+  min-height: 100vh;
+  color: var(--foreground);
+  font-family: var(--font-display), "Avenir Next", "Segoe UI", sans-serif;
+  background-image:
+    radial-gradient(circle at 10% 15%, rgba(34, 211, 238, 0.1), transparent 26%),
+    radial-gradient(circle at 80% 8%, rgba(16, 185, 129, 0.08), transparent 24%),
+    linear-gradient(180deg, rgba(14, 22, 35, 0.8), rgba(13, 17, 23, 1));
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+button,
+label,
+input,
+textarea,
+a {
+  font-family: var(--font-display), "Avenir Next", "Segoe UI", sans-serif;
+}
+
+p,
+li,
+span {
+  font-family: var(--font-body), "Iowan Old Style", Georgia, serif;
+}
+
+::selection {
+  background: rgba(34, 211, 238, 0.25);
+  color: #f8fafc;
+}

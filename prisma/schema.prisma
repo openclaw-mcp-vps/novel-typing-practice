@@ -1,0 +1,40 @@
+// Reference-only schema file for teams that want to mirror this data model.
+// Runtime persistence in this project is handled directly through better-sqlite3 in lib/database.ts.
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "sqlite"
+  url      = env("DATABASE_URL")
+}
+
+model PracticeSession {
+  id          Int      @id @default(autoincrement())
+  email       String
+  bookId      String
+  passageIndex Int
+  wpm         Float
+  accuracy    Float
+  charsTyped  Int
+  completedAt DateTime @default(now())
+}
+
+model BookState {
+  email       String
+  bookId      String
+  passageIndex Int
+  updatedAt   DateTime @default(now())
+
+  @@id([email, bookId])
+}
+
+model Subscription {
+  email               String   @id
+  status              String
+  stripeCustomerId    String?
+  stripeSubscriptionId String? @unique
+  currentPeriodEnd    DateTime?
+  updatedAt           DateTime @updatedAt
+}
